@@ -77,7 +77,6 @@ footer{border-top:1px solid #e5e5e5;max-height:10%;
 
 /* login-popup */
 .login-popup{position:fixed;width:50%;max-width:630px;min-width:320px;height:auto;z-index:9999999;background:#fff;border-radius:5px;left:50%;top:25%;left:0;right:0;margin:0 auto;
-    border:1px solid black;
     .login-popup-tab{
         li{float:left;width:50%;text-align:center;background:#fff;border-radius:5px 5px 0px 0px;
             a{display:block;

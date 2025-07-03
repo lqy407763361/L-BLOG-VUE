@@ -11,7 +11,7 @@ import CommonFooter from '@/components/index/common/CommonFooter.vue'
                         <div class="x-placeholder"></div>
                         <div class="content-left">
                               <div class="description-box">
-                                    <p>文章标题</p>
+                                    <p>你可以说点什么</p>
                               </div>
                               <el-form :model="form" label-width="auto">
                                     <el-form-item label="标题">

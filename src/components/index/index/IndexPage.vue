@@ -1,13 +1,20 @@
 <script setup>
+import { ref } from 'vue';
 import CommonHeader from '@/components/index/common/CommonHeader.vue'
 import CommonFooter from '@/components/index/common/CommonFooter.vue'
-// import CommonLogin from '@/components/index/common/CommonLogin.vue' 
+import CommonLogin from '@/components/index/common/CommonLogin.vue' 
 import IndexSide from '@/components/index/index/IndexSide.vue'
+
+// 登录弹窗
+const commonLoginRef = ref();
+const triggerLoginPopup = (status) => {
+      commonLoginRef.value.showLoginPopup(status);
+}
 </script>
 
 <template>
       <div class="layout">
-            <CommonHeader />
+            <CommonHeader @triggerLoginPopup="triggerLoginPopup"/>
             <div class="content">
                   <div class="container">
                         <div class="x-placeholder"></div>
@@ -30,7 +37,7 @@ import IndexSide from '@/components/index/index/IndexSide.vue'
                         <div style="clear:both;"></div>
                   </div>
             </div>
-            <!-- <CommonLogin /> -->
+            <CommonLogin ref="commonLoginRef" />
             <CommonFooter />
       </div>
 </template>
