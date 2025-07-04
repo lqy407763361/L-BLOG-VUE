@@ -2,19 +2,19 @@
 import { ref, defineExpose } from 'vue';
 
 // 登录弹窗
-const loginPopupFade = ref(true);
-const showLoginPopup = (status) => {
-      loginPopupFade.value = !status.status;
+const loginPopupStatus = ref(true);
+const loginPopus = (status) => {
+      loginPopupStatus.value = !status;
 }
 
 // 暴露方法给父组件
 defineExpose({
-      showLoginPopup
+      loginPopus
 });
 </script>
 
 <template>
-      <div class="login-popup" :class="{'fade':loginPopupFade}">
+      <div class="login-popup" :class="{'fade':loginPopupStatus}">
             <ul class="login-popup-tab">
                   <li class="login-tab active" data-tab="login-content"><a href=""><h3>登录</h3></a></li>
                   <li class="register-tab" data-tab="register-content"><a href=""><h3>注册</h3></a></li>
