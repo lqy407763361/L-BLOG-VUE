@@ -19,8 +19,8 @@ const changeMobileNav = (status) => {
 
 // 登录弹窗
 const commonLoginRef = ref(false);
-const changeLoginPopup = (status) => {
-      commonLoginRef.value.loginPopus(status);
+const changeLoginPopup = (status, loginType) => {
+      commonLoginRef.value.loginPopus(status, loginType);
       maskStatus.value = !status;
 }
 </script>
@@ -34,7 +34,7 @@ const changeLoginPopup = (status) => {
                         <li class="nav-active"><a href="/">首页</a></li>
                         <li><a href="/article">文章</a></li>
                         <li><a href="/about">关于</a></li>
-                        <li><a @click="changeLoginPopup(true)">登录</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);">注册</a></li>
+                        <li><a @click="changeLoginPopup(true, 'login')">登录</a>&nbsp;&nbsp;&nbsp;&nbsp;<a @click="changeLoginPopup(true, 'register')">注册</a></li>
                   </ul>
             </nav>
             <header>
@@ -47,11 +47,11 @@ const changeLoginPopup = (status) => {
                         </ul>
                         <ul class="login-nav">
                               <li>
-                                    <a @click="changeLoginPopup(true)">
+                                    <a @click="changeLoginPopup(true, 'login')">
                                     <User style="width:2rem;height:2rem;float:left;"/>
                                     &nbsp;&nbsp;登录</a>
                                     /
-                                    <a href="javascript:void(0);">注册</a>
+                                    <a @click="changeLoginPopup(true, 'register')">注册</a>
                               </li>
                         </ul>
                         <Operation class="mobile-nav-button" @click="changeMobileNav(true)" />

@@ -3,8 +3,10 @@ import { ref, defineExpose } from 'vue';
 
 // 登录弹窗
 const loginPopupStatus = ref(true);
-const loginPopus = (status) => {
+const loginTypeTab = ref();
+const loginPopus = (status, loginType) => {
       loginPopupStatus.value = !status;
+      loginTypeTab.value = loginType;
 }
 
 // 暴露方法给父组件
@@ -16,12 +18,12 @@ defineExpose({
 <template>
       <div class="login-popup" :class="{'fade':loginPopupStatus}">
             <ul class="login-popup-tab">
-                  <li class="login-tab active" data-tab="login-content"><a href=""><h3>登录</h3></a></li>
-                  <li class="register-tab" data-tab="register-content"><a href=""><h3>注册</h3></a></li>
+                  <li class="login-tab" :class="(loginTypeTab=='login') ? 'active':''"><a href=""><h3>登录</h3></a></li>
+                  <li class="register-tab" :class="(loginTypeTab=='register') ? 'active':''"><a href=""><h3>注册</h3></a></li>
                   <div style="clear:both;"></div>
             </ul>
             <div class="login-popup-body">
-                  <div class="login-content active">
+                  <div class="login-content" :class="(loginTypeTab=='login') ? 'active':'fade'">
                         <el-form :model="form" label-width="auto">
                               <el-form-item label="账号">
                                     <el-input v-model="name" placeholder="2-10位字符长度"/>
@@ -38,7 +40,7 @@ defineExpose({
                               </el-form-item>
                         </el-form>
                   </div>
-                  <div class="register-content fade">
+                  <div class="register-content" :class="(loginTypeTab=='register') ? 'active':'fade'">
                         <el-form :model="form" label-width="auto">
                               <el-form-item label="账号">
                                     <el-input v-model="name" placeholder="2-10位字符长度" />
