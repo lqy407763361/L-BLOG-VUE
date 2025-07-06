@@ -39,7 +39,7 @@ const changeLoginPopup = (status, loginType) => {
             </nav>
             <header>
                   <div class="container">
-                        <h1><a href="">L-BLOG</a></h1>
+                        <h1><a href="/">L-BLOG</a></h1>
                         <ul class="pc-nav">
                               <li class="nav-active"><a href="/">首页</a></li>
                               <li><a href="/article">文章</a></li>

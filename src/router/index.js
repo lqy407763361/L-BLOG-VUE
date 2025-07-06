@@ -4,6 +4,7 @@ import IndexSearch from '@/components/index/index/IndexSearch.vue'
 import ArticleIndex from '@/components/index/article/ArticleIndex.vue'
 import ArticleDetail from '@/components/index/article/ArticleDetail.vue'
 import AboutIndex from '@/components/index/about/AboutIndex.vue'
+import AdminRouter from '@/router/admin.js'
 
 const routes = [
     { 
@@ -32,6 +33,7 @@ const routes = [
         name: 'About',  
         component: AboutIndex,
     },
+    ...AdminRouter,
 ]
 
 const router = createRouter({
