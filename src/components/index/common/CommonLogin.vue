@@ -8,6 +8,9 @@ const loginPopus = (status, loginType) => {
       loginPopupStatus.value = !status;
       loginTypeTab.value = loginType;
 }
+const changeLoginType = (loginType) => {
+      loginTypeTab.value = loginType;
+}
 
 // 暴露方法给父组件
 defineExpose({
@@ -18,8 +21,8 @@ defineExpose({
 <template>
       <div class="login-popup" :class="{'fade':loginPopupStatus}">
             <ul class="login-popup-tab">
-                  <li class="login-tab" :class="(loginTypeTab=='login') ? 'active':''"><a href=""><h3>登录</h3></a></li>
-                  <li class="register-tab" :class="(loginTypeTab=='register') ? 'active':''"><a href=""><h3>注册</h3></a></li>
+                  <li class="login-tab" :class="(loginTypeTab=='login') ? 'active':''"><a href="javascript:void(0);" @click="changeLoginType('login')"><h3>登录</h3></a></li>
+                  <li class="register-tab" :class="(loginTypeTab=='register') ? 'active':''"><a href="javascript:void(0);" @click="changeLoginType('register')"><h3>注册</h3></a></li>
                   <div style="clear:both;"></div>
             </ul>
             <div class="login-popup-body">
