@@ -1,5 +1,5 @@
 *{-webkit-box-sizing:border-box;box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
-html,body,#app,#app>div{height:100vh;margin:0;padding:0;font-family:'Open Sans',sans-serif;font-size:10px;line-height:1.43;}
+html,body,#app{height:100vh;margin:0;padding:0;font-family:'Open Sans',sans-serif;font-size:10px;line-height:1.43;}
 .container{max-width:1440px;width:100vw;margin-right:auto;margin-left:auto;padding:0px 15px 0px 15px;}
 a{text-decoration:none;cursor:pointer;
     &:hover{text-decoration:none;}
