@@ -1,26 +1,26 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import IndexPage from '@/components/index/index/IndexPage.vue'
-import IndexSearch from '@/components/index/index/IndexSearch.vue'
-import ArticleIndex from '@/components/index/article/ArticleIndex.vue'
-import ArticleDetail from '@/components/index/article/ArticleDetail.vue'
-import AboutIndex from '@/components/index/about/AboutIndex.vue'
-import AdminRouter from '@/router/admin.js'
+import IndexPage from '@/components/index/IndexPage.vue'
+import IndexSearch from '@/components/index/IndexSearch.vue'
+import ArticleIndex from '@/components/article/ArticleIndex.vue'
+import ArticleDetail from '@/components/article/ArticleDetail.vue'
+import AboutIndex from '@/components/about/AboutIndex.vue'
+import CommonNotFound from '@/components/common/CommonNotFound.vue'
 
 const routes = [
     { 
         path: '/', 
         name: 'Index', 
-        component: IndexPage 
+        component: IndexPage,
     },
     {    
         path: '/search',
         name: 'Search',
-        component: IndexSearch 
+        component: IndexSearch,
     },
     { 
         path: '/article',
         name: 'Article',  
-        component: ArticleIndex 
+        component: ArticleIndex,
     },
     { 
         path: '/article/:id',
@@ -33,7 +33,11 @@ const routes = [
         name: 'About',  
         component: AboutIndex,
     },
-    ...AdminRouter,
+    { 
+        path: '/:pathMatch(.*)*',
+        name: 'CommonNotFound',  
+        component: CommonNotFound,
+    },
 ]
 
 const router = createRouter({

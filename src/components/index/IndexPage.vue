@@ -1,7 +1,7 @@
 <script setup>
-import CommonHeader from '@/components/index/common/CommonHeader.vue'
-import CommonFooter from '@/components/index/common/CommonFooter.vue'
-import IndexSide from '@/components/index/index/IndexSide.vue'
+import CommonHeader from '@/components/common/CommonHeader.vue'
+import CommonFooter from '@/components/common/CommonFooter.vue'
+import IndexSide from '@/components/index/IndexSide.vue'
 </script>
 
 <template>
@@ -10,7 +10,7 @@ import IndexSide from '@/components/index/index/IndexSide.vue'
             <div class="container">
                   <div class="x-placeholder"></div>
                   <div class="content-left">
-                        <h2>搜索内容</h2>
+                        <h2>最新发表</h2>
                         <div class="description-box">
                               <h3><a href="">文章标题</a></h3>
                               <p class="time">2025-06-24</p>

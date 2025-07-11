@@ -13,6 +13,7 @@ p{margin:0px 0px 10px 0px;}
 .mobile-nav-fadein{opacity:1 !important;left:0px !important;}
 .el-input{height:34px;}
 .el-form-item__label{font-weight:700;}
+.not-found{font-size:2.2rem;}
 
 /* header */
 header{background:#0593d3;position:fixed;top:0;left:0;right:0;z-index:999996;

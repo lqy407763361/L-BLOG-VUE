@@ -1,7 +1,7 @@
 <script setup>
-import CommonHeader from '@/components/index/common/CommonHeader.vue'
-import CommonFooter from '@/components/index/common/CommonFooter.vue'
-import ArticleSide from '@/components/index/article/ArticleSide.vue';
+import CommonHeader from '@/components/common/CommonHeader.vue'
+import CommonFooter from '@/components/common/CommonFooter.vue'
+import ArticleSide from '@/components/article/ArticleSide.vue';
 </script>
 
 <template>

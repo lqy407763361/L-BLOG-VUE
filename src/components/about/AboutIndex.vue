@@ -1,6 +1,6 @@
 <script setup>
-import CommonHeader from '@/components/index/common/CommonHeader.vue'
-import CommonFooter from '@/components/index/common/CommonFooter.vue'
+import CommonHeader from '@/components/common/CommonHeader.vue'
+import CommonFooter from '@/components/common/CommonFooter.vue'
 </script>
 
 <template>

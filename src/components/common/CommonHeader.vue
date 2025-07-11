@@ -1,6 +1,16 @@
 <script setup>
+import {useHead} from '@vueuse/head'
 import {ref} from 'vue'
-import CommonLogin from '@/components/index/common/CommonLogin.vue'
+import CommonLogin from '@/components/common/CommonLogin.vue'
+
+// SEO
+useHead({
+      title: 'L-BLOG',
+      meta: [{ 
+            name: 'L-BLOG',
+            content: '我的个人博客' 
+      }],
+});
 
 // 蒙版
 const maskStatus = ref(true);
