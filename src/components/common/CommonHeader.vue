@@ -1,6 +1,6 @@
 <script setup>
-import {useHead} from '@vueuse/head'
-import {ref} from 'vue'
+import { useHead } from '@vueuse/head';
+import { ref } from 'vue';
 import CommonLogin from '@/components/common/CommonLogin.vue'
 
 // SEO
