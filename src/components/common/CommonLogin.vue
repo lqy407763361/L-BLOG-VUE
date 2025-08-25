@@ -1,6 +1,10 @@
 <script setup>
 import { ref, defineExpose } from 'vue';
 
+const name = ref('');
+const password = ref('');
+const rememberPassword = ref();
+
 // 登录弹窗
 const loginPopupStatus = ref(true);
 const loginTypeTab = ref();
@@ -32,7 +36,7 @@ defineExpose({
                                     <el-input v-model="name" placeholder="2-10位字符长度"/>
                               </el-form-item>
                               <el-form-item label="密码">
-                                    <el-input v-model="password" type="password" placeholder="6-12位英文/数字密码" />
+                                    <el-input v-model="password" type="password" placeholder="6-12位英文/数字密码" show-password autocomplete="new-password"/>
                               </el-form-item>
                               <el-checkbox-group v-model="rememberPassword">
                                     <el-checkbox label="30天内自动登录" value="1" />
@@ -49,7 +53,7 @@ defineExpose({
                                     <el-input v-model="name" placeholder="2-10位字符长度" />
                               </el-form-item>
                               <el-form-item label="密码">
-                                    <el-input v-model="password" type="password" placeholder="6-12位英文/数字密码" />
+                                    <el-input v-model="password" type="password" placeholder="6-12位英文/数字密码" show-password autocomplete="new-password"/>
                               </el-form-item>
                               <el-form-item label="验证码">
                                     <el-input v-model="verifyCode"/>

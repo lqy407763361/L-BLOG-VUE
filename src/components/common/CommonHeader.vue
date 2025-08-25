@@ -33,37 +33,47 @@ const changeLoginPopup = (status, loginType) => {
       commonLoginRef.value.loginPopus(status, loginType);
       maskStatus.value = !status;
 }
+
+// 退出登录
+// const changeLoginOut = () => {
+//       alert("退出登录!");
+// }
 </script>
 
 <template>
       <nav class="mobile-nav" :class="{'mobile-nav-fadein':mobileNavStatus}">
-            <CircleClose class="close-menu" @click="changeMobileNav(false)" />
+            <font-awesome-icon icon="fa-regular fa-circle-xmark" class="close-menu" @click="changeMobileNav(false)"/>
             <div style="clear:both;"></div>
             <ul>
-                  <li class="nav-active"><a href="/">首页</a></li>
-                  <li><a href="/article">文章</a></li>
-                  <li><a href="/about">关于</a></li>
-                  <li><a @click="changeLoginPopup(true, 'login')">登录</a>&nbsp;&nbsp;&nbsp;&nbsp;<a @click="changeLoginPopup(true, 'register')">注册</a></li>
+                  <li class="nav-active"><router-link href="/">首页</router-link></li>
+                  <li><router-link to="/article">文章</router-link></li>
+                  <li><router-link to="/about">关于</router-link></li>
+                  <li><span @click="changeLoginPopup(true, 'login')">登录</span>&nbsp;&nbsp;&nbsp;&nbsp;<span @click="changeLoginPopup(true, 'register')">注册</span></li>
             </ul>
       </nav>
       <header>
             <div class="container">
-                  <h1><a href="/">L-BLOG</a></h1>
+                  <h1><router-link to="/">L-BLOG</router-link></h1>
                   <ul class="pc-nav">
-                        <li class="nav-active"><a href="/">首页</a></li>
-                        <li><a href="/article">文章</a></li>
-                        <li><a href="/about">关于</a></li>
+                        <li class="nav-active"><router-link href="/">首页</router-link></li>
+                        <li><router-link to="/article">文章</router-link></li>
+                        <li><router-link to="/about">关于</router-link></li>
                   </ul>
                   <ul class="login-nav">
                         <li>
-                              <a @click="changeLoginPopup(true, 'login')">
-                              <User style="width:2rem;height:2rem;float:left;"/>
-                              &nbsp;&nbsp;登录</a>
+                              <span @click="changeLoginPopup(true, 'login')">
+                              <font-awesome-icon icon="fa-solid fa-right-to-bracket" />
+                              &nbsp;&nbsp;登录</span>
                               /
-                              <a @click="changeLoginPopup(true, 'register')">注册</a>
+                              <span @click="changeLoginPopup(true, 'register')">注册</span>
                         </li>
+                        <!-- <li>
+                              您好！张三
+                              /
+                              <span @click="changeLoginOut()">退出</span>
+                        </li> -->
                   </ul>
-                  <Operation class="mobile-nav-button" @click="changeMobileNav(true)" />
+                  <font-awesome-icon icon="fa-solid fa-bars" class="mobile-nav-button" @click="changeMobileNav(true)"/>
                   <div style="clear:both;"></div>
             </div>
       </header>
