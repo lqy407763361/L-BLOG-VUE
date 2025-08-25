@@ -48,7 +48,7 @@ const changeLoginPopup = (status, loginType) => {
                   <li class="nav-active"><router-link href="/">首页</router-link></li>
                   <li><router-link to="/article">文章</router-link></li>
                   <li><router-link to="/about">关于</router-link></li>
-                  <li><a @click="changeLoginPopup(true, 'login')">登录</a>&nbsp;&nbsp;&nbsp;&nbsp;<a @click="changeLoginPopup(true, 'register')">注册</a></li>
+                  <li><span @click="changeLoginPopup(true, 'login')">登录</span>&nbsp;&nbsp;&nbsp;&nbsp;<span @click="changeLoginPopup(true, 'register')">注册</span></li>
             </ul>
       </nav>
       <header>
@@ -61,16 +61,16 @@ const changeLoginPopup = (status, loginType) => {
                   </ul>
                   <ul class="login-nav">
                         <li>
-                              <a @click="changeLoginPopup(true, 'login')">
+                              <span @click="changeLoginPopup(true, 'login')">
                               <font-awesome-icon icon="fa-solid fa-right-to-bracket" />
-                              &nbsp;&nbsp;登录</a>
+                              &nbsp;&nbsp;登录</span>
                               /
-                              <a @click="changeLoginPopup(true, 'register')">注册</a>
+                              <span @click="changeLoginPopup(true, 'register')">注册</span>
                         </li>
                         <!-- <li>
                               您好！张三
                               /
-                              <a @click="changeLoginOut()">退出</a>
+                              <span @click="changeLoginOut()">退出</span>
                         </li> -->
                   </ul>
                   <font-awesome-icon icon="fa-solid fa-bars" class="mobile-nav-button" @click="changeMobileNav(true)"/>
