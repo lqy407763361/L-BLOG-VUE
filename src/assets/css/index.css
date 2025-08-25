@@ -134,7 +134,6 @@ footer{border-top:1px solid #e5e5e5;max-height:10%;
         }
         .login-nav{float:right;
             li{float:left;font-size:1.4rem;padding-top:20px;}
-            span{cursor:pointer;}
         }
     }
     .mobile-nav,.mobile-nav-button{display:none;}
