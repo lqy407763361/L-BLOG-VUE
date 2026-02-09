@@ -15,7 +15,11 @@
     "@fortawesome/free-solid-svg-icons": "^7.0.0",
     "@fortawesome/vue-fontawesome": "^3.1.1",
     "@vueuse/head": "^2.0.0",
+    "axios": "^1.13.5",
+    "dayjs": "^1.11.19",
     "element-plus": "^2.10.3",
+    "jsencrypt": "^3.5.4",
+    "pinia": "^3.0.4",
     "vue": "^3.5.17",
     "vue-router": "^4.5.1"
   },
