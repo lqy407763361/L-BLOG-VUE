@@ -45,7 +45,7 @@ const changeLoginPopup = (status, loginType) => {
             <font-awesome-icon icon="fa-regular fa-circle-xmark" class="close-menu" @click="changeMobileNav(false)"/>
             <div style="clear:both;"></div>
             <ul>
-                  <li class="nav-active"><router-link href="/">首页</router-link></li>
+                  <li><router-link to="/">首页</router-link></li>
                   <li><router-link to="/article">文章</router-link></li>
                   <li><router-link to="/about">关于</router-link></li>
                   <li><a @click="changeLoginPopup(true, 'login')">登录</a>&nbsp;&nbsp;&nbsp;&nbsp;<a @click="changeLoginPopup(true, 'register')">注册</a></li>
@@ -55,9 +55,9 @@ const changeLoginPopup = (status, loginType) => {
             <div class="container">
                   <h1><router-link to="/">L-BLOG</router-link></h1>
                   <ul class="pc-nav">
-                        <li class="nav-active"><router-link href="/">首页</router-link></li>
-                        <li><router-link to="/article">文章</router-link></li>
-                        <li><router-link to="/about">关于</router-link></li>
+                        <li :class="{'nav-active': $route.path === '/'}"><router-link to="/">首页</router-link></li>
+                        <li :class="{'nav-active': $route.path.startsWith('/article')}"><router-link to="/article">文章</router-link></li>
+                        <li :class="{'nav-active': $route.path === '/about'}"><router-link to="/about">关于</router-link></li>
                   </ul>
                   <ul class="login-nav">
                         <li>

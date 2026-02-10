@@ -1,5 +1,21 @@
 <script setup>
+import { ref, onMounted } from 'vue'
 import { Search } from '@element-plus/icons-vue'
+import { articleApi } from '@/api/articleApi'
+
+//获取API接口
+const hotArticleList = ref({});
+//文章接口
+const articleIndexApi = async () => {
+      const getHotArticleList = await articleApi.getHotArticleList();
+      hotArticleList.value = getHotArticleList.data;
+}
+
+//组件加载完成后再加载接口
+onMounted(async () =>{
+      //加载接口
+      await articleIndexApi();
+});
 </script>
 
 <template>
@@ -15,14 +31,9 @@ import { Search } from '@element-plus/icons-vue'
             </div>
             <div class="recommend-posts">
                   <h2>热门文章</h2>
-                  <div class="description-box">
-                        <h3><a href="">热门文章标题</a></h3>
-                  </div>
-                  <div class="description-box">
-                        <h3><a href="">热门文章标题</a></h3>
-                  </div>
-                  <div class="description-box">
-                        <h3><a href="">热门文章标题</a></h3>
+                  <div class="description-box" v-for="article in hotArticleList" 
+                        :key="article.id">
+                        <h3><router-link :to="`/article/${ article.id }`">{{ article.title }}</router-link></h3>
                   </div>
             </div>
       </div>

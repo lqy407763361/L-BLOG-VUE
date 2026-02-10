@@ -3,7 +3,7 @@ import IndexPage from '@/components/index/IndexPage.vue'
 import IndexSearch from '@/components/index/IndexSearch.vue'
 import ArticleIndex from '@/components/article/ArticleIndex.vue'
 import ArticleDetail from '@/components/article/ArticleDetail.vue'
-import AboutIndex from '@/components/about/AboutIndex.vue'
+import AboutPage from '@/components/about/AboutPage.vue'
 import CommonNotFound from '@/components/common/CommonNotFound.vue'
 
 const routes = [
@@ -19,7 +19,7 @@ const routes = [
     },
     { 
         path: '/article',
-        name: 'Article',  
+        name: 'ArticleIndex',  
         component: ArticleIndex,
     },
     { 
@@ -30,8 +30,8 @@ const routes = [
     },
     { 
         path: '/about',
-        name: 'About',  
-        component: AboutIndex,
+        name: 'AboutPage',  
+        component: AboutPage,
     },
     { 
         path: '/:pathMatch(.*)*',
