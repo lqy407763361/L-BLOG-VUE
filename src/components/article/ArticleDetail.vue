@@ -1,7 +1,30 @@
 <script setup>
+import { ref, onMounted, computed } from 'vue'
 import CommonHeader from '@/components/common/CommonHeader.vue'
 import CommonFooter from '@/components/common/CommonFooter.vue'
 import ArticleSide from '@/components/article/ArticleSide.vue';
+import { useRoute } from 'vue-router'
+import { formatDate } from '@/util/dateUtil'
+import { articleApi } from '@/api/articleApi'
+
+//获取API接口
+const articleDetail = ref({});
+
+const route = useRoute();
+const routeValue = computed(() => route.params.id);
+//文章接口
+const articleIndexApi = async () => {
+      const getArticleDetail = await articleApi.getArticleDetail({
+            articleId: routeValue.value,
+      });
+      articleDetail.value = getArticleDetail.data;
+}
+
+//组件加载完成后再加载接口
+onMounted(async () =>{
+      //加载接口
+      await articleIndexApi();
+});
 </script>
 
 <template>
@@ -12,21 +35,21 @@ import ArticleSide from '@/components/article/ArticleSide.vue';
                   <div class="content-left">
                         <ul class="breadcrumb">
                               <li>
-                                    <a class="active">面包屑导航</a>
+                                    <router-link to="/article" class="active">文章</router-link>
                               </li>
                               <span>/</span>
                               <li>
-                                    <a class="active">面包屑导航</a>
+                                    <router-link to="/articleCategory" class="active">{{ articleDetail.categoryName }}</router-link>
                               </li>
                               <span>/</span>
                               <li>
-                                    面包屑导航
+                                    {{ articleDetail.title }}
                               </li>
                         </ul>
                         <div class="content-detail">
-                              <h2>文章标题</h2>
-                              <p class="detail-add-time">2025-06-27</p>
-                              <p class="detail-body">文章内容</p>
+                              <h2>{{ articleDetail.title }}</h2>
+                              <p class="detail-add-time">{{ formatDate(articleDetail.addTime) }}</p>
+                              <div class="detail-body" v-html="articleDetail.content"></div>
                         </div>
                   </div>
                   <ArticleSide />

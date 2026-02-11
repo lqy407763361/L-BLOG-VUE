@@ -1,14 +1,14 @@
 import httpRequest from "@/config/axiosConfig";
 
 export const userApi = {
-    //获取用户详情
-    async getUserDetail(userId){
-        return await httpRequest.get('/getUserDetail', {params: userId});
-    },
-
     //登录
     async login(params = {}){
         return await httpRequest.post('/login', params);
+    },
+
+    //注册
+    async register(params = {}){
+        return await httpRequest.post('/register', params);
     },
 
     //退出登录

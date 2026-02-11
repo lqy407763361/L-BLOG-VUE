@@ -8,13 +8,13 @@ const httpRequest = axios.create({
 
 //请求拦截器
 httpRequest.interceptors.request.use(function(config){
-    const adminAccessToken = localStorage.getItem('adminAccessToken');
-    const adminRefreshToken = localStorage.getItem('adminRefreshToken');
-    if(adminAccessToken && adminAccessToken!==''){
-        config.headers['adminAccessToken'] = adminAccessToken;
+    const accessToken = localStorage.getItem('accessToken');
+    const refreshToken = localStorage.getItem('refreshToken');
+    if(accessToken && accessToken!==''){
+        config.headers['accessToken'] = accessToken;
     }
-    if(adminRefreshToken && adminRefreshToken!==''){
-        config.headers['adminRefreshToken'] = adminRefreshToken;
+    if(refreshToken && refreshToken!==''){
+        config.headers['refreshToken'] = refreshToken;
     }
 
     return config;
@@ -33,9 +33,9 @@ httpRequest.interceptors.response.use(
 
     async function(error){
         const originalRequest = error.config;
-        if(originalRequest.url === '/adminRefreshAccessToken') {
-            localStorage.removeItem('adminAccessToken');
-            localStorage.removeItem('adminRefreshToken');
+        if(originalRequest.url === '/refreshAccessToken') {
+            localStorage.removeItem('accessToken');
+            localStorage.removeItem('refreshToken');
             window.location.href = '/login';
             
             return Promise.reject(error);
@@ -47,18 +47,18 @@ httpRequest.interceptors.response.use(
 
             try{
                 //刷新accessToken
-                const res = await httpRequest.post('/adminRefreshAccessToken');
+                const res = await httpRequest.post('/refreshAccessToken');
                 const newAccessToken = res.data;
-                localStorage.setItem('adminAccessToken', newAccessToken);
+                localStorage.setItem('accessToken', newAccessToken);
 
                 //重试请求
-                originalRequest.headers['adminAccessToken'] = newAccessToken;
+                originalRequest.headers['accessToken'] = newAccessToken;
 
                 return httpRequest(originalRequest);
             }catch(refreshError){
                 //刷新失败，退出登录
-                localStorage.removeItem('adminAccessToken');
-                localStorage.removeItem('adminRefreshToken');
+                localStorage.removeItem('accessToken');
+                localStorage.removeItem('refreshToken');
                 window.location.href = '/login';
 
                 return Promise.reject(refreshError);
