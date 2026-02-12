@@ -1,7 +1,22 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { Search } from '@element-plus/icons-vue'
+import router from '@/router'
+import { useRoute } from 'vue-router'
 import { articleApi } from '@/api/articleApi'
+
+const route = useRoute();
+const searchTitle = ref(route.query.title || '');
+const clickSearch = () => {
+      if(searchTitle.value.trim()){
+            router.push({
+                  path: '/search',
+                  query: {
+                        title: searchTitle.value
+                  }
+            });
+      }
+}
 
 //获取API接口
 const hotArticleList = ref({});
@@ -24,8 +39,8 @@ onMounted(async () =>{
                   <h2>站内搜索</h2>
                   <el-form :model="form">
                         <ul>
-                              <li><el-input v-model="input" style="width:100%" placeholder="请输入关键词" /></li>
-                              <li><el-button type="primary" :icon="Search" @click="onSubmit"></el-button></li>
+                              <li><el-input v-model="searchTitle" style="width:100%" placeholder="请输入关键词" /></li>
+                              <li><el-button type="primary" :icon="Search" @click="clickSearch"></el-button></li>
                         </ul>
                   </el-form>
             </div>

@@ -22,7 +22,7 @@ onMounted(async () =>{
             <h2>分类标题</h2>
             <div class="description-box" v-for="articleCategory in articleCategoryList.list"
                   :key="articleCategory.id">
-                  <h3><router-link :to="`/articleCategory/${articleCategory.id}`">{{ articleCategory.name }}</router-link></h3>
+                  <h3><router-link :to="`/article?categoryId=${articleCategory.id}`">{{ articleCategory.name }}</router-link></h3>
             </div>
       </div>
 </template>

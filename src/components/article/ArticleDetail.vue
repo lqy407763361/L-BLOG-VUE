@@ -35,11 +35,11 @@ onMounted(async () =>{
                   <div class="content-left">
                         <ul class="breadcrumb">
                               <li>
-                                    <router-link to="/article" class="active">文章</router-link>
+                                    <router-link :to="`/article`" class="active">文章</router-link>
                               </li>
                               <span>/</span>
                               <li>
-                                    <router-link to="/articleCategory" class="active">{{ articleDetail.categoryName }}</router-link>
+                                    <router-link :to="`/article?categoryId=${articleDetail.categoryId}`" class="active">{{ articleDetail.categoryName }}</router-link>
                               </li>
                               <span>/</span>
                               <li>
